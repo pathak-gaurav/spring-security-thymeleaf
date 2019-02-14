@@ -33,11 +33,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/").hasAnyRole(new String[]{"ADMIN", "MANAGER"})
                 .antMatchers("/manager/**").hasAnyRole(new String[]{"ADMIN", "MANAGER"})
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").permitAll().and().logout().permitAll();
+                .formLogin().loginPage("/login").permitAll().and().logout().permitAll()
+                .and()
+                .headers().frameOptions().disable()
+                .and()
+                .csrf().ignoringAntMatchers("/h2-console/**")
+                .and()
+                .cors().disable();
     }
 }
