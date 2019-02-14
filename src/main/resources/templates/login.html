@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body class="text-center">
+<div class="container">
+    <br>
+    <form action="#" th:action="@{/login}" method="post">
+        <h1 class="h3 mb-4 col-4 font-weight-normal">Please sign in</h1>
+        <label for="username" class="sr-only">Email address</label>
+        <input type="text" id="username" class="form-control mb-4 col-4" placeholder="username" name="username" required
+               autofocus/>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" class="form-control mb-4 col-4" placeholder="password" name="password"
+               required/>
+        <input type="submit" th:value="'Log in'" class="btn btn-primary btn-block mb-4 col-4"/>
+        <p class="mt-5 mb-4 col-4 text-muted">&copy; 2017-2018 Gaurav Pathak</p>
+    </form>
+</div>
+</body>
+</html>
