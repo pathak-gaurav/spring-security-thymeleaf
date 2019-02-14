@@ -3,7 +3,6 @@ package com.gaurav.security.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class User {
         this.enabled = enabled;
     }
 
-    public void addAuthority(Authority tempAuthority){
-        if(authority==null){
+    public void addAuthority(Authority tempAuthority) {
+        if (authority == null) {
             authority = new ArrayList<>();
         }
         authority.add(tempAuthority);

@@ -35,6 +35,25 @@
         </form>
     </div>
 </nav>
+<br>
+<div class="container">
+    <table class="table table-bordered table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Authority</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${users}">
+            <td th:text="${user.username}">Mark</td>
+            <td th:text="${user.getAuthority()}">Otto</td>
+            <td>TODO Coding</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 
 </body>
