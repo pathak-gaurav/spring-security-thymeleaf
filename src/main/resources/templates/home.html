@@ -42,6 +42,7 @@
         <tr>
             <th scope="col">Username</th>
             <th scope="col">Authority</th>
+            <th scope="col">Enabled</th>
             <div sec:authorize="hasRole('ROLE_ADMIN')">
                 <th scope="col">Action</th>
             </div>
@@ -51,6 +52,7 @@
         <tr th:each="user:${users}">
             <td th:text="${user.username}">Mark</td>
             <td th:text="${user.getAuthority()}">Otto</td>
+            <td th:text="${user.enabled}">enabled</td>
             <div sec:authorize="hasRole('ROLE_ADMIN')">
                 <td><a th:href="@{/deleteUser(username=${user.username})}">Delete</a> </td>
             </div>
