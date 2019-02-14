@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -34,6 +35,12 @@ public class UserController {
         user.addAuthority(authority);
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         userRepository.save(user);
+        return "redirect:/";
+    }
+
+    @RequestMapping("/deleteUser")
+    public String deleteUser(@RequestParam("username")String username){
+        userRepository.deleteById(username);
         return "redirect:/";
     }
 }
